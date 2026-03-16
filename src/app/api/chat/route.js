@@ -14,7 +14,7 @@ export async function POST(request) {
 
     // Embeddings for retrieval
     const embeddings = new GoogleGenerativeAIEmbeddings({
-      model: "embedding-001",
+      model: "gemini-embedding-001",
     });
 
     const vectorStore = await QdrantVectorStore.fromExistingCollection(

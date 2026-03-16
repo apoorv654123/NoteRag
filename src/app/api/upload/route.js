@@ -81,7 +81,7 @@ export async function POST(request) {
 
     // Embeddings
     const embeddings = new GoogleGenerativeAIEmbeddings({
-      model: "embedding-001",
+      model: "gemini-embedding-001",
       apiKey: process.env.GOOGLE_API_KEY,
       taskType: TaskType.RETRIEVAL_DOCUMENT,
     });
@@ -112,10 +112,11 @@ export async function POST(request) {
         collectionName: "rag_docs",
         collectionConfig: {
           vectors: {
-            size: 768,
+            size: 3072,
             distance: "Cosine",
           }
-        }
+        },
+        checkCompatibility: false
       });
       
     //   console.log(
